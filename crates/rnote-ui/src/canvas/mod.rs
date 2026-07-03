@@ -727,7 +727,7 @@ impl Default for RnCanvas {
     }
 }
 
-pub fn output_file_new_title() String {
+pub fn output_file_new_title() -> String {
     format!("{}_Document",Local::now().format("%Y-%m-%d_%H:%M").to_string())
 }
 pub(crate) static OUTPUT_FILE_NEW_SUBTITLE: once_cell::sync::Lazy<String> =

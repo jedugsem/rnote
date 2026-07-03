@@ -727,8 +727,8 @@ impl Default for RnCanvas {
     }
 }
 
-pub(crate) static OUTPUT_FILE_NEW_TITLE: once_cell::sync::Lazy<String> =
-    once_cell::sync::Lazy::new(|| gettext(format!("{}_Document",Local::now().format("%Y-%m-%d_%H:%M").to_string())));
+//pub(crate) static OUTPUT_FILE_NEW_TITLE: once_cell::sync::Lazy<String> =
+//    once_cell::sync::Lazy::new(|| gettext(format!("{}_Document",Local::now().format("%Y-%m-%d_%H:%M").to_string())));
 pub(crate) static OUTPUT_FILE_NEW_SUBTITLE: once_cell::sync::Lazy<String> =
     once_cell::sync::Lazy::new(|| gettext("Draft"));
 
@@ -1005,7 +1005,7 @@ impl RnCanvas {
                     .and_then(|t| Some(t.file_stem()?.to_string_lossy().to_string()))
                     .unwrap_or_else(|| gettext("- invalid file name -"))
             })
-            .unwrap_or_else(|| OUTPUT_FILE_NEW_TITLE.to_string())
+            .unwrap_or_else(|| format!("{}_Document",Local::now().format("%Y-%m-%d_%H:%M").to_string()))
     }
 
     /// The document folder path for display. To get the actual path, use output-file

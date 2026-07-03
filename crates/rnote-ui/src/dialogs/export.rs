@@ -299,7 +299,7 @@ pub(crate) async fn dialog_export_doc_w_prefs(appwindow: &RnAppWindow, canvas: &
 
             let file_title = crate::utils::default_file_title_for_export(
                 Some(file.clone()),
-                Some(&canvas::OUTPUT_FILE_NEW_TITLE),
+                Some(&canvas::output_file_new_title()),
                 None,
             );
 
@@ -393,7 +393,7 @@ fn create_filedialog_export_doc(
     let file_ext = doc_export_prefs.export_format.file_ext();
     let file_name = crate::utils::default_file_title_for_export(
         canvas.output_file(),
-        Some(&canvas::OUTPUT_FILE_NEW_TITLE),
+        Some(&canvas::output_file_new_title()),
         Some(&(String::from(".") + &file_ext)),
     );
 
@@ -489,7 +489,7 @@ pub(crate) async fn dialog_export_doc_pages_w_prefs(appwindow: &RnAppWindow, can
 
     let default_stem_name = crate::utils::default_file_title_for_export(
         canvas.output_file(),
-        Some(&canvas::OUTPUT_FILE_NEW_TITLE),
+        Some(&canvas::output_file_new_title()),
         None,
     );
     export_files_stemname_entryrow.set_text(&default_stem_name);
@@ -1213,7 +1213,7 @@ fn create_filedialog_export_selection(
     let file_ext = selection_export_prefs.export_format.file_ext();
     let file_name = crate::utils::default_file_title_for_export(
         canvas.output_file(),
-        Some(&canvas::OUTPUT_FILE_NEW_TITLE),
+        Some(&canvas::output_file_new_title()),
         Some(&(String::from(" - Selection") + "." + &file_ext)),
     );
 
@@ -1247,7 +1247,7 @@ pub(crate) async fn filechooser_export_engine_state(appwindow: &RnAppWindow, can
 
     let initial_name = crate::utils::default_file_title_for_export(
         canvas.output_file(),
-        Some(&canvas::OUTPUT_FILE_NEW_TITLE),
+        Some(&canvas::output_file_new_title()),
         Some(" - engine state.json"),
     );
 
@@ -1308,7 +1308,7 @@ pub(crate) async fn filechooser_export_engine_config(appwindow: &RnAppWindow, ca
 
     let initial_name = crate::utils::default_file_title_for_export(
         canvas.output_file(),
-        Some(&canvas::OUTPUT_FILE_NEW_TITLE),
+        Some(&canvas::output_file_new_title()),
         Some(" - engine config.json"),
     );
 

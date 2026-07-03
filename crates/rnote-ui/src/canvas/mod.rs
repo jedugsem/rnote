@@ -10,6 +10,7 @@ pub(crate) use input::reject_pointer_input;
 // Imports
 use crate::boxed::WidgetFlagsBoxed;
 use crate::{RnAppWindow, config, env};
+use chrono::LocalTime;
 use futures::StreamExt;
 use gettextrs::gettext;
 use gtk4::{
@@ -727,7 +728,7 @@ impl Default for RnCanvas {
 }
 
 pub(crate) static OUTPUT_FILE_NEW_TITLE: once_cell::sync::Lazy<String> =
-    once_cell::sync::Lazy::new(|| gettext("New Document"));
+    once_cell::sync::Lazy::new(|| gettext(format!("{}_Document",Local::now().format("%Y-%m-%d_%H:%M").to_string())));
 pub(crate) static OUTPUT_FILE_NEW_SUBTITLE: once_cell::sync::Lazy<String> =
     once_cell::sync::Lazy::new(|| gettext("Draft"));
 
